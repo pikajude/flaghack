@@ -8,8 +8,22 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface JTAppDelegate : NSObject <NSApplicationDelegate>
+#import "JTCountryManager.h"
+
+@interface JTAppDelegate : NSObject <NSApplicationDelegate> {
+    NSInteger backupIdx;
+}
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSPopUpButton *countries;
+@property (assign) IBOutlet NSProgressIndicator *progInd;
+
+- (void)pickCountry:(NSMenuItem *)sender;
+- (void)changeCountry:(NSMenuItem *)sender;
+- (void)errorBegin:(NSString *)err;
+- (void)errorCleanup;
+
+- (IBAction)selectCurrentCountry:(id)sender;
+- (IBAction)refresh:(id)sender;
 
 @end
